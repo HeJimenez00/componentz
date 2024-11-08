@@ -1,0 +1,36 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className } = Astro.props;
+---
+
+<span id="counter" class={className}></span>
+
+<style>
+  @property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+
+  #counter {
+    animation: counter 5s infinite alternate ease-in-out;
+    counter-reset: num var(--num);
+  }
+
+  #counter::after {
+    content: counter(num) "%";
+  }
+
+  @keyframes counter {
+    from {
+      --num: 0;
+    }
+    to {
+      --num: 100;
+    }
+  }
+</style>
+

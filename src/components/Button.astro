@@ -1,0 +1,31 @@
+---
+const { className } = Astro.props;
+---
+
+<script>
+  // const button = document.querySelector(".btn-animation");
+  //
+  // button?.addEventListener("mouseenter", () => {
+  //   gsap.to(button, { scale: 1.05, duration: 0.3, ease: "back" });
+  // });
+  // button?.addEventListener("mousedown", () => {
+  //   gsap.to(button, { scale: 0.9, duration: 0.3, ease: "back" });
+  // });
+  // button?.addEventListener("mouseleave", () => {
+  //   gsap.to(button, { scale: 1, duration: 0.3, ease: "back" });
+  // });
+  // button?.addEventListener("click", () => {
+  //   gsap.to(button, {
+  //     scale: 0.9,
+  //     duration: 0.1,
+  //     ease: "back",
+  //     onComplete: () => {
+  //       gsap.to(button, { scale: 1, duration: 0.3, ease: "back" });
+  //     },
+  //   });
+  // });
+</script>
+
+<button class:list={[`${className}`]}>
+  <slot />
+</button>

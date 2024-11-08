@@ -1,0 +1,26 @@
+---
+import NavbarHero from "@components/shared/navbars/NavbarHero.astro";
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-tertiary-600">
+    <NavbarHero />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  body {
+    @apply bg-tertiary-600 text-secondary-600;
+  }
+</style>

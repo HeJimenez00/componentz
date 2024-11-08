@@ -1,0 +1,69 @@
+---
+import type { ProductProps } from "@interfaces/componentz-list.response";
+
+const {
+  title,
+  price,
+  description,
+  imageUrl,
+  quantity = 1,
+  onAdd,
+  onRemove,
+  onFavorite,
+  onTrash,
+} = Astro.props as ProductProps;
+
+import Minus from "@icons/Minus.astro";
+import Plus from "@icons/Plus.astro";
+import Heart from "@icons/Heart.astro";
+import Trash from "@icons/Trash.astro";
+import Button from "./Button.astro";
+---
+
+<article
+  class="absolute z-20 top-[39%] left-[33.4%] -translate-y-[100%] -translate-x-[81%] flex w-[428px] p-[10px] bg-tertiary-500 rounded-[20px] space-x-[10px] border border-tertiary-600 outline outline-tertiary-300 shadow-[25px_25px_40px_05px_rgba(0,0,0,0.50);]"
+>
+  <img
+    src={imageUrl}
+    alt=`Imagen de ${title}`
+    class="w-[138px] h-[130px] rounded-[10px] object-cover"
+  />
+  <aside class="flex flex-col justify-between">
+    <div>
+      <header class="flex justify-between pb-2">
+        <h3 class="font-bold">{title}</h3>
+        <span class="font-bold">{price}</span>
+      </header>
+      <p class="text-secondary-600 text-small">
+        {description}
+      </p>
+    </div>
+    <footer class="flex justify-between items-center">
+      <div class="flex gap-2">
+        <Button
+          className="h-6 w-6 bg-primary-400 flex justify-center items-center rounded-lg"
+        >
+          <Minus />
+        </Button>
+        <span>{quantity}</span>
+        <Button
+          className="h-6 w-6 bg-primary-400 flex justify-center items-center rounded-lg"
+        >
+          <Plus />
+        </Button>
+      </div>
+      <div class="flex gap-2">
+        <button><Heart /></button>
+        <button><Trash /></button>
+      </div>
+    </footer>
+  </aside>
+</article>
+
+<style>
+  h1,
+  span,
+  button {
+    @apply text-secondary-200;
+  }
+</style>

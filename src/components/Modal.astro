@@ -1,0 +1,26 @@
+<dialog>
+  <p>foo</p>
+  <form method="dialog">
+    <button>Ok</button>
+  </form>
+</dialog>
+
+<button id="button">Abrir modal</button>
+
+<style>
+  dialog[open] {
+    scale: 1;
+    transition: scale 0.3s ease;
+
+    @starting-style {
+      scale: 0;
+    }
+  }
+
+  dialog {
+    transition:
+      scale 0.3s ease,
+      display 0.3s ease allow-discrete;
+    scale: 0;
+  }
+</style>

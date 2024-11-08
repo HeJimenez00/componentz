@@ -1,0 +1,27 @@
+<div id="grid"></div>
+
+<script>
+  const cellCount = 550;
+  const $grid = document.getElementById("grid");
+
+  if ($grid) {
+    const $fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < cellCount; i++) {
+      const $cell = document.createElement("div");
+      $cell?.classList.add("cell");
+      $fragment.appendChild($cell);
+    }
+    $grid?.appendChild($fragment);
+  }
+</script>
+
+<style is:global>
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(35, 1fr);
+  }
+  .cell {
+    @apply w-[68px] h-[63px] bg-tertiary-600 border border-[#C0C9DC]/20;
+  }
+</style>

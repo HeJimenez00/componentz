@@ -1,0 +1,46 @@
+---
+import Music from "@icons/Music.astro";
+import Repeat from "@icons/Repeat.astro";
+import Rewind from "@icons/Rewind.astro";
+import Pause from "@icons/Pause.astro";
+---
+
+<article
+  class="p-[15px] bg-tertiary-500 min-w-[326px] rounded-[20px] border border-tertiary-600 ring-2 ring-tertiary-300"
+>
+  <header class="flex justify-between">
+    <div class="flex gap-[10px]">
+      <img
+        src="/images/sirius.jpg"
+        alt="Imagen de Dispersion"
+        class="w-14 h-14 object-cover rounded-[10px]"
+      />
+      <div>
+        <p class="text-body font-bold text-secondary-200 leading-3">Pumba</p>
+        <span class="text-small">Goblins From Mars</span>
+      </div>
+    </div>
+    <Music />
+  </header>
+
+  <div class="flex justify-between pt-3 items-center">
+    <Repeat />
+    <div class="flex gap-3">
+      <Rewind />
+      <Pause />
+      <div class="rotate-180">
+        <Rewind />
+      </div>
+    </div>
+    <Repeat />
+  </div>
+  <div class="flex items-center mt-5">
+    <span class="text-small text-secondary-600">1:21</span>
+    <div
+      class="flex-grow mx-2 h-1 bg-secondary-600 rounded-full overflow-hidden"
+    >
+      <div class="w-1/2 h-full bg-primary-400"></div>
+    </div>
+    <span class="text-small text-secondary-600">3:45</span>
+  </div>
+</article>

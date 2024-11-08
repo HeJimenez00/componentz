@@ -1,0 +1,31 @@
+---
+import Logo from "@icons/Logo.astro";
+
+const mainLinks = [
+  { href: "/components", name: "Componentes" },
+  { href: "/plantillas", name: "plantillas" },
+  { href: "/blog", name: "Blog" },
+];
+const secondaryLinks = [
+  { href: "/pricing", name: "Precio" },
+  { href: "/github", name: "Github" },
+];
+---
+
+<header class="container mx-auto flex justify-between items-center">
+  <div class="flex items-center gap-10">
+    <a
+      href="/"
+      class="flex gap-1 items-center font-bold text-secondary-200 text-2xl"
+      ><Logo /> heee
+    </a>
+    <nav>
+      <ul class="space-x-5">
+        {mainLinks.map(({ href, name }) => <a href={href}>{name}</a>)}
+      </ul>
+    </nav>
+  </div>
+  <ul class="space-x-5">
+    {secondaryLinks.map(({ href, name }) => <a href={href}>{name}</a>)}
+  </ul>
+</header>
