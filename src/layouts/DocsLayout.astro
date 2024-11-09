@@ -1,0 +1,11 @@
+---
+const { title, description } = Astro.props;
+---
+
+<slot />
+
+<style is:global>
+  body {
+    @apply bg-tertiary-600 text-secondary-600;
+  }
+</style>
