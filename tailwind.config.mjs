@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         // Primary colors
+        "primary-100": "oklch(73.37% 0.1303 267.64)",
         "primary-200": "oklch(64.54% 0.1834 266.13)",
         "primary-400": "oklch(56.32% 0.2147 265.93)",
         "primary-600": "oklch(49.19% 0.2422 265.98)",

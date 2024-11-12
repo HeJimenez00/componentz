@@ -1,11 +1,42 @@
 ---
-import Logo from "src/icons/Logo.astro";
+import Logo from "@icons/Logo.astro";
+import Github from "@icons/Github.astro";
+import { docsConfig } from "src/config/docs";
 ---
 
-<nav>
-  <a
-    href="/"
-    class="flex gap-1 items-center font-bold text-secondary-200 text-2xl"
-    ><Logo /> heee
-  </a>
+<nav
+  class="sticky container mx-auto mb-5 mt-2 flex items-center justify-between"
+>
+  <div class="flex items-center space-x-10">
+    <a
+      href="/"
+      class="flex gap-1 items-center font-bold text-secondary-200 text-2xl"
+      ><Logo /> heee
+    </a>
+    <ul class="space-x-5">
+      {
+        docsConfig.mainNavbar[0].items.map(({ href, title }) => (
+          <a href={href} class="hover:text-secondary-200 transition-colors">
+            {title}
+          </a>
+        ))
+      }
+    </ul>
+  </div>
+
+  <div>
+    <p>search</p>
+  </div>
+
+  <div class="flex items-center gap-5">
+    <ul class="space-x-5">
+      {
+        docsConfig.mainNavbar[1].items.map(({ href, title }) => (
+          <a href={href} class="hover:text-secondary-200 transition-colors">
+            {title}
+          </a>
+        ))
+      }
+    </ul>
+  </div>
 </nav>

@@ -1,15 +1,6 @@
 ---
 import Logo from "src/icons/Logo.astro";
-
-const mainLinks = [
-  { href: "/components", name: "Componentes" },
-  { href: "/plantillas", name: "plantillas" },
-  { href: "/blog", name: "Blog" },
-];
-const secondaryLinks = [
-  { href: "/pricing", name: "Precio" },
-  { href: "/github", name: "Github" },
-];
+import { docsConfig } from "src/config/docs";
 ---
 
 <header
@@ -24,9 +15,9 @@ const secondaryLinks = [
     <nav>
       <ul class="space-x-5">
         {
-          mainLinks.map(({ href, name }) => (
+          docsConfig.mainNavbar[0].items.map(({ href, title }) => (
             <a href={href} class="hover:text-secondary-200 transition-colors">
-              {name}
+              {title}
             </a>
           ))
         }
@@ -34,6 +25,12 @@ const secondaryLinks = [
     </nav>
   </div>
   <ul class="space-x-5">
-    {secondaryLinks.map(({ href, name }) => <a href={href}>{name}</a>)}
+    {
+      docsConfig.mainNavbar[1].items.map(({ href, title }) => (
+        <a href={href} class="hover:text-secondary-200 transition-colors">
+          {title}
+        </a>
+      ))
+    }
   </ul>
 </header>

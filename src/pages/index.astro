@@ -1,11 +1,9 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import Hero from "@sections/Hero.astro";
+import { siteConfig } from "src/config/site-config";
 ---
 
-<MainLayout
-  title="Componentz | Home"
-  description="Catálogo de componentes UI para desarrolladores"
->
+<MainLayout title={siteConfig.title} description={siteConfig.description}>
   <Hero />
 </MainLayout>
