@@ -1,0 +1,31 @@
+h1,
+h2,
+h3,
+h4 {
+  @apply text-secondary-200 font-bold pb-2;
+}
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl pt-5;
+}
+h3 {
+  @apply pt-2 text-4xl;
+}
+h4 {
+  @apply text-2xl pb-5 pt-7;
+}
+p {
+  @apply leading-6 text-secondary-500;
+}
+code {
+  @apply bg-tertiary-500 text-primary-100 break-words text-small border border-tertiary-200 px-[6px] py-[3px] rounded-lg;
+}
+kbd {
+  @apply text-small;
+}
+.highlighted-text {
+  @apply text-secondary-200;
+}

@@ -1,0 +1,36 @@
+---
+import DocsLayout from "@layouts/DocsLayout.astro";
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async () => {
+  const docs = await getCollection("docs");
+
+  const slug = docs.map((doc) => ({
+    params: { slug: doc.slug },
+    props: { doc: doc },
+  }));
+
+  return slug;
+}) satisfies GetStaticPaths;
+
+const { slug } = Astro.params;
+const { doc } = Astro.props;
+
+const frontmatter = doc.data;
+
+const { Content, headings } = await doc.render();
+---
+
+<DocsLayout
+  title={frontmatter.title}
+  description={frontmatter.description}
+  headings={headings}
+>
+  <div class="space-x-1 text-small">
+    <span>Docs</span>
+    <span>&#47;</span>
+    <span class="capitalize text-primary-400">{slug}</span>
+  </div>
+  <Content />
+</DocsLayout>

@@ -1,0 +1,7 @@
+---
+const { description } = Astro.props;
+---
+
+<p set:html={description}>
+  <slot />
+</p>
