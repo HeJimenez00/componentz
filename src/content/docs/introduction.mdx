@@ -8,7 +8,14 @@ author: "heee"
 
 import RichDescription from "../components/RichDescription.astro"
 import TextBlocks from "../components/TextBlocks.astro"
+import Banner from "../components/Banner.astro"
 
+<Banner />
+<div class="space-x-1 text-small">
+  <span>Docs</span>
+  <span>&#47;</span>
+  <span class="capitalize text-primary-400">{frontmatter.title}</span>
+</div>
 ### {frontmatter.title}
 Bienvenido a la documentación de Spark
 <hr class="border-t-1 border-tertiary-200 mt-7" />

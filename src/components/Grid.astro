@@ -1,4 +1,8 @@
-<div id="grid"></div>
+---
+const { class: customClass = "" } = Astro.props;
+---
+
+<div id="grid" class={customClass}></div>
 
 <script>
   const cellCount = 550;

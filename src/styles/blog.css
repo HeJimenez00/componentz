@@ -15,7 +15,7 @@ h3 {
   @apply pt-2 text-4xl;
 }
 h4 {
-  @apply text-2xl pb-5 pt-7;
+  @apply text-2xl pb-3 pt-7;
 }
 p {
   @apply leading-6 text-secondary-500;

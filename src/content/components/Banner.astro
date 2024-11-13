@@ -1,3 +1,42 @@
-<div>
-  <h1>Heee</h1>
+---
+import Grid from "@components/Grid.astro";
+import ArrowDown from "@icons/ArrowDown.astro";
+---
+
+<div class="relative">
+  <div
+    class="z-20 absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 bg-tertiary-600 border border-tertiary-300 rounded-full p-3"
+  >
+    <ArrowDown />
+  </div>
+  <div
+    class="relative w-auto h-[500px] overflow-hidden rounded-[40px] border border-tertiary-400 mb-10"
+  >
+    <h1
+      class="text-7xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 [text-shadow:_0px_0px_50px_rgb(255_255_255_/_0.8)]"
+    >
+      Heee
+    </h1>
+    <div class="radial-gradient"></div>
+    <Grid
+      class="absolute -z-10 scale-50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+    />
+  </div>
 </div>
+
+<style>
+  .radial-gradient {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 10;
+    background-image: radial-gradient(
+      ellipse at center,
+      transparent 10%,
+      #0a0d19 80%
+    );
+    pointer-events: none;
+    user-select: none;
+    inset: 0;
+  }
+</style>

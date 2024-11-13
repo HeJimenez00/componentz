@@ -19,6 +19,9 @@ const { doc } = Astro.props;
 
 const frontmatter = doc.data;
 
+console.log("Slug:", slug);
+console.log("Frontmatter:", frontmatter.title.toLowerCase());
+
 const { Content, headings } = await doc.render();
 ---
 
@@ -27,10 +30,19 @@ const { Content, headings } = await doc.render();
   description={frontmatter.description}
   headings={headings}
 >
-  <div class="space-x-1 text-small">
-    <span>Docs</span>
-    <span>&#47;</span>
-    <span class="capitalize text-primary-400">{slug}</span>
-  </div>
+  {
+    typeof slug === "string" &&
+      typeof frontmatter.title === "string" &&
+      slug !== "introduction" && (
+        <>
+          {console.log("Los valores son diferentes, mostrando el bloque")}
+          <div class="space-x-1 text-small">
+            <span>Docs</span>
+            <span>&#47;</span>
+            <span class="capitalize text-primary-400">{slug}</span>
+          </div>
+        </>
+      )
+  }
   <Content />
 </DocsLayout>

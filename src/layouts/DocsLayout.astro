@@ -4,7 +4,6 @@ import NavbarDocs from "@components/shared/navbars/NavbarDocs.astro";
 import "../styles/blog.css";
 
 const { title, description, headings } = Astro.props;
-console.log(headings.slug);
 ---
 
 <html lang="es">
@@ -18,30 +17,32 @@ console.log(headings.slug);
   </head>
   <body>
     <NavbarDocs />
-    <div class="max-w-7xl mx-auto flex gap-10">
+    <section class="container mx-auto my-grid mt-10">
       <AsideNavDocs />
       <article class="w-full">
         <slot />
       </article>
 
-      <div class="w-56">
-        <h4 class="leading-none">En esta página</h4>
-        <ol class="pl-2">
-          {
-            headings.map((heading, i) => (
-              <li>
-                <a
-                  href={`#${heading.slug}`}
-                  class="text-primary-400 hover:text-primary-200 text-small"
-                >
-                  {heading.text}
-                </a>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
-    </div>
+      <aside>
+        <div class="fixed">
+          <h4 class="on-this-page leading-none">En esta página</h4>
+          <ol class="space-y-2">
+            {
+              headings.map((heading, i) => (
+                <li>
+                  <a
+                    href={`#${heading.slug}`}
+                    class="block text-secondary-600 hover:text-secondary-400 text-small"
+                  >
+                    {heading.text}
+                  </a>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </aside>
+    </section>
   </body>
 </html>
 
@@ -49,7 +50,13 @@ console.log(headings.slug);
   body {
     @apply bg-tertiary-600 text-secondary-600;
   }
-  h1 {
-    @apply text-6xl;
+  .on-this-page {
+    font-size: 16px;
+    padding-top: 0px;
+  }
+  .my-grid {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+    gap: 40px;
   }
 </style>
