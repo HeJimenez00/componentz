@@ -11,20 +11,35 @@ const { pathname } = Astro.url;
 ---
 
 <aside class="h-full">
-  {
-    sidebarNavbar.map((section, _) => (
-    <h4 class="on-this-page font-bold text-secondary-200 leading-none mb-2">{section.title}</h4>
-      <ul class="space-y-2 border-l border-secondary-600">
-        {section.items?.map(item => (
-          <a href={item.href}
-            class:list={[
-              "text-small block -translate-x-[1px] pl-3",
-              {"text-primary-400 border-l border-primary-400": pathname === item.href},
-              {"hover:text-secondary-500 hover:border-l hover:border-secondary-200": pathname !== item.href}
-            ]}
-          >{item.title}</a>
-        ))}
-      </ul>
-    ))
-  }
+  <div class="fixed space-y-7">
+    {
+      sidebarNavbar.map((section, _) => (
+        <div>
+          <h4 class="on-this-page font-bold text-secondary-200 leading-none mb-2">
+            {section.title}
+          </h4>
+          <ul class="space-y-2 border-l border-secondary-600">
+            {section.items?.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  "text-small block -translate-x-[1px] pl-3",
+                  {
+                    "text-primary-400 border-l border-primary-400":
+                      pathname === item.href,
+                  },
+                  {
+                    "hover:text-secondary-500 hover:border-l hover:border-secondary-200":
+                      pathname !== item.href,
+                  },
+                ]}
+              >
+                {item.title}
+              </a>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
 </aside>

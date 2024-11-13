@@ -3,10 +3,13 @@ import Logo from "@icons/Logo.astro";
 import { docsConfig } from "src/config/docs";
 ---
 
-<nav
+<header
   class="sticky top-0 py-2 border-b border-tertiary-400 z-50 bg-tertiary-600/50 backdrop-blur-2xl"
 >
-  <div class="container mx-auto flex items-center justify-between">
+  <nav
+    aria-label="Docs navigation"
+    class="container mx-auto flex items-center justify-between"
+  >
     <div class="flex items-center space-x-10">
       <a
         href="/"
@@ -16,9 +19,11 @@ import { docsConfig } from "src/config/docs";
       <ul class="space-x-5">
         {
           docsConfig.mainNavbar[0].items.map(({ href, title }) => (
-            <a href={href} class="hover:text-secondary-200 transition-colors">
-              {title}
-            </a>
+            <li class="inline-block">
+              <a href={href} class="hover:text-secondary-200 transition-colors">
+                {title}
+              </a>
+            </li>
           ))
         }
       </ul>
@@ -39,5 +44,5 @@ import { docsConfig } from "src/config/docs";
         }
       </ul>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>

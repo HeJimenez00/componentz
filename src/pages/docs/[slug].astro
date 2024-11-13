@@ -19,9 +19,6 @@ const { doc } = Astro.props;
 
 const frontmatter = doc.data;
 
-console.log("Slug:", slug);
-console.log("Frontmatter:", frontmatter.title.toLowerCase());
-
 const { Content, headings } = await doc.render();
 ---
 

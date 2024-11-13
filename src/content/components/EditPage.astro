@@ -1,0 +1,13 @@
+---
+import Pencil from "@icons/Pencil.astro";
+
+const { url } = Astro.props;
+---
+
+<button
+  type="button"
+  class="text-primary-400 hover:text-secondary-200 flex items-center gap-1 underline"
+>
+  <Pencil class="w-4" />
+  <a href={url} target="_blank" class="text-small">Edit this page</a>
+</button>

@@ -1,9 +1,11 @@
 ---
 import AsideNavDocs from "@components/shared/navbars/AsideNavDocs.astro";
 import NavbarDocs from "@components/shared/navbars/NavbarDocs.astro";
+import EditPage from "../content/components/EditPage.astro"
 import "../styles/blog.css";
 
 const { title, description, headings } = Astro.props;
+console.log(headings);
 ---
 
 <html lang="es">
@@ -19,8 +21,16 @@ const { title, description, headings } = Astro.props;
     <NavbarDocs />
     <section class="container mx-auto my-grid mt-10">
       <AsideNavDocs />
-      <article class="w-full">
+      <article class="w-full mb-10">
         <slot />
+
+        <footer>
+          <hr class="border-t-1 border-tertiary-200 my-7" />
+          <div class="flex justify-between">
+            <p>From developers, for developers ❤️</p>
+            <EditPage url={`https://github.com/HeJimenez00/componentz/blob/main/src/content/docs/${headings[0].slug}.mdx`} />
+          </div>
+        </footer>
       </article>
 
       <aside>

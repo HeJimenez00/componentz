@@ -63,5 +63,14 @@ export const docsConfig: DocsConfig = {
         },
       ],
     },
+    {
+      title: "Components",
+      items: [
+        {
+          title: "Input",
+          href: "/docs/input",
+        },
+      ],
+    },
   ],
 };
