@@ -49,16 +49,19 @@ export const docsConfig: DocsConfig = {
         {
           title: "Introduction",
           href: "/docs/introduction",
+          icon: "introduction",
           items: [],
         },
         {
           title: "Installation",
           href: "/docs/installation",
+          icon: "installation",
           items: [],
         },
         {
           title: "Templates",
           href: "/templates",
+          icon: "templates",
           items: [],
         },
       ],

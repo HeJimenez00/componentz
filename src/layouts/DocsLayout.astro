@@ -1,14 +1,14 @@
 ---
 import AsideNavDocs from "@components/shared/navbars/AsideNavDocs.astro";
 import NavbarDocs from "@components/shared/navbars/NavbarDocs.astro";
-import EditPage from "../content/components/EditPage.astro"
-import "../styles/blog.css";
+import EditPage from "../content/components/EditPage.astro";
+import CopyCode from "../content/components/CopyCode.astro";
+import "../styles/docs.css";
 
 const { title, description, headings } = Astro.props;
-console.log(headings);
 ---
 
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -18,17 +18,19 @@ console.log(headings);
     <title>{`${title} - heee`}</title>
   </head>
   <body>
+    <CopyCode />
     <NavbarDocs />
     <section class="container mx-auto my-grid mt-10">
       <AsideNavDocs />
       <article class="w-full mb-10">
         <slot />
-
         <footer>
           <hr class="border-t-1 border-tertiary-200 my-7" />
           <div class="flex justify-between">
             <p>From developers, for developers ❤️</p>
-            <EditPage url={`https://github.com/HeJimenez00/componentz/blob/main/src/content/docs/${headings[0].slug}.mdx`} />
+            <EditPage
+              url={`https://github.com/HeJimenez00/componentz/blob/main/src/content/docs/${headings[0].slug}.mdx`}
+            />
           </div>
         </footer>
       </article>
@@ -67,6 +69,6 @@ console.log(headings);
   .my-grid {
     display: grid;
     grid-template-columns: 0.2fr 1fr 0.2fr;
-    gap: 40px;
+    gap: 80px;
   }
 </style>

@@ -21,10 +21,13 @@ p {
   @apply leading-6 text-secondary-500;
 }
 pre {
-  @apply bg-transparent text-transparent !important;
+  @apply bg-tertiary-500 mt-7 border border-tertiary-200 rounded-lg p-3 flex justify-between !important;
+  code {
+    @apply bg-transparent border-0;
+  }
 }
 code {
-  @apply bg-tertiary-500 text-primary-100 inline-block break-words text-small border border-tertiary-200 px-[6px] rounded-lg w-auto;
+  @apply bg-tertiary-500 text-primary-100 inline-block break-words text-small border border-tertiary-200 px-2 rounded-lg w-auto;
 }
 kbd {
   @apply text-small;
