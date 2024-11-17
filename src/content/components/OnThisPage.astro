@@ -1,0 +1,23 @@
+---
+const { headings } = Astro.props;
+---
+
+<aside class="hidden lg:block">
+  <div class="fixed">
+    <h4 class="on-this-page leading-none">En esta página</h4>
+    <ol class="space-y-2">
+      {
+        headings.map((heading, i) => (
+          <li>
+            <a
+              href={`#${heading.slug}`}
+              class="block text-secondary-600 hover:text-secondary-400 text-small"
+            >
+              {heading.text}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</aside>

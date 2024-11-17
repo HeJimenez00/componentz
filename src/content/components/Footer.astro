@@ -1,0 +1,18 @@
+---
+import EditPage from "../components/EditPage.astro";
+
+const { slug } = Astro.props;
+---
+
+<footer class="w-full mb-10">
+  <slot />
+  <div>
+    <hr class="border-t-1 border-tertiary-200 my-7" />
+    <div class="flex justify-between">
+      <p>From developers, for developers ❤️</p>
+      <EditPage
+        url={`https://github.com/HeJimenez00/componentz/blob/main/src/content/docs/${slug}.mdx`}
+      />
+    </div>
+  </div>
+</footer>
