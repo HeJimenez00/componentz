@@ -2,7 +2,6 @@
 import AsideNavDocs from "@components/shared/navbars/AsideNavDocs.astro";
 import NavbarDocs from "@components/shared/navbars/NavbarDocs.astro";
 import EditPage from "../content/components/EditPage.astro";
-import CopyCode from "../content/components/CopyCode.astro";
 import "../styles/docs.css";
 
 const { title, description, headings } = Astro.props;
@@ -18,7 +17,6 @@ const { title, description, headings } = Astro.props;
     <title>{`${title} - heee`}</title>
   </head>
   <body>
-    <CopyCode />
     <NavbarDocs />
     <section class="container mx-auto my-grid mt-10">
       <AsideNavDocs />

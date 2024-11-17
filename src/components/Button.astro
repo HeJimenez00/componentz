@@ -1,31 +1,67 @@
 ---
-const { className } = Astro.props;
+const { text = "", class: className = "" } = Astro.props;
 ---
 
-<script>
-  // const button = document.querySelector(".btn-animation");
-  //
-  // button?.addEventListener("mouseenter", () => {
-  //   gsap.to(button, { scale: 1.05, duration: 0.3, ease: "back" });
-  // });
-  // button?.addEventListener("mousedown", () => {
-  //   gsap.to(button, { scale: 0.9, duration: 0.3, ease: "back" });
-  // });
-  // button?.addEventListener("mouseleave", () => {
-  //   gsap.to(button, { scale: 1, duration: 0.3, ease: "back" });
-  // });
-  // button?.addEventListener("click", () => {
-  //   gsap.to(button, {
-  //     scale: 0.9,
-  //     duration: 0.1,
-  //     ease: "back",
-  //     onComplete: () => {
-  //       gsap.to(button, { scale: 1, duration: 0.3, ease: "back" });
-  //     },
-  //   });
-  // });
-</script>
-
-<button class:list={[`${className}`]}>
+<button class={`btn ${className}`}>
   <slot />
 </button>
+
+<script>
+  import { animate } from "https://cdn.jsdelivr.net/npm/framer-motion@11.11.11/dom/+esm";
+
+  const $box = document.querySelectorAll(".btn");
+
+  $box.forEach((box) => {
+    let isAnimated = false;
+
+    box.addEventListener("mouseenter", () => {
+      const animation = animate(
+        box,
+        { scale: 1.05 },
+        { duration: 0.2, type: "spring", stiffness: 300 },
+      );
+      animation.speed = animation.speed * 1.5;
+    });
+
+    box.addEventListener("mouseleave", () => {
+      const animation = animate(
+        box,
+        { scale: 1 },
+        { duration: 0.1, type: "spring", stiffness: 300 },
+      );
+      animation.speed = animation.speed * 1.5;
+    });
+
+    const clickPress = () => {
+      const animation = animate(
+        box,
+        { scale: 0.9 },
+        { duration: 0.1, type: "spring", stiffness: 300 },
+      );
+      animation.speed = animation.speed * 1.5;
+      isAnimated = !isAnimated;
+    };
+
+    box.addEventListener("mousedown", clickPress);
+    box.addEventListener("mouseup", () => {
+      const animation = animate(
+        box,
+        { scale: 1 },
+        { duration: 0.1, type: "spring", stiffness: 300 },
+      );
+      animation.speed = animation.speed * 1.5;
+
+      if (isAnimated) {
+        isAnimated = !isAnimated;
+        setTimeout(() => {
+          const animation = animate(
+            box,
+            { scale: 1.05 },
+            { duration: 0.1, type: "spring", stiffness: 300 },
+          );
+          animation.speed = animation.speed * 1.2;
+        }, 100);
+      }
+    });
+  });
+</script>

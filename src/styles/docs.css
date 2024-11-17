@@ -21,7 +21,8 @@ p {
   @apply leading-6 text-secondary-500;
 }
 pre {
-  @apply bg-tertiary-500 mt-7 border border-tertiary-200 rounded-lg p-3 flex justify-between !important;
+  all: unset;
+  background-color: transparent !important;
   code {
     @apply bg-transparent border-0;
   }
