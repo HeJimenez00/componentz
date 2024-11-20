@@ -1,8 +1,8 @@
 ---
-const { text = "", class: className = "" } = Astro.props;
+const { text = "", id = "", class: className = "" } = Astro.props;
 ---
 
-<button class={`btn ${className}`}>
+<button id={id} class={`btn ${className}`}>
   <slot />
 </button>
 
@@ -18,7 +18,7 @@ const { text = "", class: className = "" } = Astro.props;
       const animation = animate(
         box,
         { scale: 1.05 },
-        { duration: 0.2, type: "spring", stiffness: 300 },
+        { duration: 0.1, type: "spring", stiffness: 300 },
       );
       animation.speed = animation.speed * 1.5;
     });
@@ -35,7 +35,7 @@ const { text = "", class: className = "" } = Astro.props;
     const clickPress = () => {
       const animation = animate(
         box,
-        { scale: 0.9 },
+        { scale: 0.90 },
         { duration: 0.1, type: "spring", stiffness: 300 },
       );
       animation.speed = animation.speed * 1.5;

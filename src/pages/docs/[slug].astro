@@ -31,13 +31,11 @@ const { Content, headings } = await doc.render();
     typeof slug === "string" &&
       typeof frontmatter.title === "string" &&
       slug !== "introduction" && (
-        <>
-          <div class="space-x-1 text-small">
-            <span>Docs</span>
-            <span>&#47;</span>
-            <span class="capitalize text-primary-400">{slug}</span>
-          </div>
-        </>
+        <div class="space-x-1 text-small hidden lg:block">
+          <span>Docs</span>
+          <span>&#47;</span>
+          <span class="capitalize text-primary-400">{slug}</span>
+        </div>
       )
   }
   <Content />

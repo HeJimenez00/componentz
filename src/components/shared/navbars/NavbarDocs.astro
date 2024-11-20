@@ -1,14 +1,37 @@
 ---
 import Logo from "@icons/Logo.astro";
+import { Icon } from "astro-icon/components";
 import { docsConfig } from "src/config/docs";
+import Button from "@components/Button.astro";
+import { getDomElement } from "@utils/getDomelement";
 ---
 
+<script>
+  import { getDomElement } from "src/utils/getDomElement";
+
+  const $btnNavbarDocs = getDomElement("#btnNavDocs");
+  const $closeNavbarDocs = getDomElement("#closeNavbarDocs");
+  const $navbarDocs = getDomElement("#navbarDocs");
+  const $ulElement = $navbarDocs?.querySelector("ul");
+  const $blur = getDomElement("#blur");
+
+  $btnNavbarDocs?.addEventListener("click", () => {
+    $ulElement?.classList.toggle("hidden");
+    $blur?.classList.toggle("hidden");
+  });
+
+  $closeNavbarDocs?.addEventListener("click", () => {
+    $ulElement?.classList.toggle("hidden"), $blur?.classList.toggle("hidden");
+  });
+</script>
+
 <header
-  class="sticky top-0 py-3 border-b border-tertiary-200 z-50 bg-tertiary-600/50 backdrop-blur-2xl"
+  class="py-3 border-b border-tertiary-200 z-[80] bg-tertiary-600 backdrop-blur-2xl fixed top-0 left-0 right-0"
 >
   <nav
+    id="navbarDocs"
     aria-label="Docs navigation"
-    class="container mx-auto flex items-center justify-between"
+    class="container mx-auto flex items-center justify-between relative px-5 lg:px-0"
   >
     <div class="flex items-center space-x-10">
       <a
@@ -16,11 +39,22 @@ import { docsConfig } from "src/config/docs";
         class="flex gap-1 items-center font-bold text-secondary-200 text-2xl"
         ><Logo /> heee
       </a>
-      <ul class="space-x-5">
+      <ul
+        class="lg:space-x-5 lg:pl-4 hidden lg:flex fixed lg:relative right-5 lg:right-0 top-2 lg:top-0 rounded-xl w-1/2 lg:w-full p-5 lg:p-0 bg-tertiary-400 lg:bg-transparent !m-0"
+      >
+        <Button
+          id="closeNavbarDocs"
+          class="text-xl lg:hidden bg-tertiary-200 rounded-md text-secondary-200 p-2 right-5 absolute"
+        >
+          <Icon name="x" />
+        </Button>
         {
           docsConfig.mainNavbar[0].items.map(({ href, title }) => (
-            <li class="inline-block">
-              <a href={href} class="hover:text-secondary-200 transition-colors">
+            <li>
+              <a
+                href={href}
+                class="hover:text-secondary-200 transition-colors block py-2"
+              >
                 {title}
               </a>
             </li>
@@ -28,12 +62,18 @@ import { docsConfig } from "src/config/docs";
         }
       </ul>
     </div>
+    <button
+      id="btnNavDocs"
+      class="text-xl block lg:hidden text-white rounded-md text-secondary-200 p-2"
+    >
+      <Icon name="ellipsis-vertical" />
+    </button>
 
     <!-- <div> -->
     <!--   <p>search</p> -->
     <!-- </div> -->
 
-    <div class="flex items-center gap-5">
+    <div class="hidden items-center gap-5 lg:flex">
       <ul class="space-x-5">
         {
           docsConfig.mainNavbar[1].items.map(({ href, title }) => (
@@ -46,3 +86,9 @@ import { docsConfig } from "src/config/docs";
     </div>
   </nav>
 </header>
+
+<div
+  id="blur"
+  class="w-full h-screen hidden absolute left-0 right-0 top-9 z-50 bg-[#020510]/70 backdrop-blur-sm"
+>
+</div>

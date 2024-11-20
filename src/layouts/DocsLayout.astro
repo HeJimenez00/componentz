@@ -4,6 +4,7 @@ import NavbarDocs from "@components/shared/navbars/NavbarDocs.astro";
 import Footer from "../content/components/Footer.astro";
 import "../styles/docs.css";
 import OnThisPage from "src/content/components/OnThisPage.astro";
+import AsideNavDocsPC from "@components/shared/navbars/AsideNavDocsPC.astro";
 
 const { title, description, headings } = Astro.props;
 ---
@@ -19,11 +20,13 @@ const { title, description, headings } = Astro.props;
   </head>
   <body>
     <NavbarDocs />
-    <section class="container mx-auto my-grid mt-10">
+    <section class="w-full container grid-xl mx-auto lg:pt-28">
       <AsideNavDocs />
-      <Footer slug={headings[0].slug}>
+      <AsideNavDocsPC />
+      <main class="px-10 mt-36 lg:mt-0">
         <slot />
-      </Footer>
+        <Footer slug={headings[0].slug} />
+      </main>
       <OnThisPage headings={headings} />
     </section>
   </body>
@@ -33,13 +36,14 @@ const { title, description, headings } = Astro.props;
   body {
     @apply bg-tertiary-600 text-secondary-600;
   }
+  @media (min-width: 768px) {
+    .grid-xl {
+      display: grid;
+      grid-template-columns: 0.1fr 1fr 0.1fr;
+    }
+  }
   .on-this-page {
     font-size: 16px;
     padding-top: 0px;
-  }
-  .my-grid {
-    display: grid;
-    grid-template-columns: 0.2fr 1fr 0.2fr;
-    gap: 80px;
   }
 </style>
