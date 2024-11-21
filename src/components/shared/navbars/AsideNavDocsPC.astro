@@ -11,7 +11,7 @@ const { sidebarNavbar } = docsConfig;
 const { pathname } = Astro.url;
 ---
 
-<aside class="h-full hidden lg:block w-36">
+<aside class="h-full hidden lg:block w-36 mr-8">
   <div
     id="navbar"
     class="on-this-page space-y-7 mx-auto container w-full h-full pt-10"
@@ -22,15 +22,16 @@ const { pathname } = Astro.url;
           <h4 class="on-this-page font-bold text-secondary-200 leading-none mb-2">
             {section.title}
           </h4>
-          <ul class="space-y-2">
+          <ul>
             {section.items?.map((item) => (
-              <li>
+              <li class="hover:bg-tertiary-400 transition-colors rounded-xl">
                 <a
                   href={item.href}
                   class:list={[
-                    "text-small flex gap-3 items-center",
+                    "text-small flex gap-2 py-2 pl-3 hover:pl-4 items-center transition-all duration-200",
                     {
-                      "text-primary-400": pathname === item.href,
+                      "text-primary-400 bg-tertiary-400 rounded-xl pl-4":
+                        pathname === item.href,
                     },
                     {
                       "hover:text-secondary-200": pathname !== item.href,
@@ -41,7 +42,7 @@ const { pathname } = Astro.url;
                     <Icon
                       name={item.icon}
                       class:list={[
-                        "bg-tertiary-400 text-3xl p-2 rounded-md",
+                        "text-base rounded-md",
                         {
                           "text-primary-400": pathname === item.href,
                         },

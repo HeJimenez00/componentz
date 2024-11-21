@@ -18,6 +18,7 @@ export default {
         "secondary-600": "oklch(67.36% 0.042 267.77)",
 
         // Tertiary colors
+        "tertiary-100": "oklch(28.24% 0.0592 272.68)",
         "tertiary-200": "oklch(26.01% 0.0496 272.68)",
         "tertiary-300": "oklch(23.7% 0.0411 272.73)",
         "tertiary-400": "oklch(21.09% 0.0404 271.92)",

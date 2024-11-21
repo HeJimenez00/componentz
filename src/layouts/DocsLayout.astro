@@ -23,7 +23,7 @@ const { title, description, headings } = Astro.props;
     <section class="w-full container grid-xl mx-auto lg:pt-28">
       <AsideNavDocs />
       <AsideNavDocsPC />
-      <main class="px-10 mt-36 lg:mt-0">
+      <main class="px-5 md:px-0 mt-36 lg:mt-0">
         <slot />
         <Footer slug={headings[0].slug} />
       </main>
@@ -34,9 +34,9 @@ const { title, description, headings } = Astro.props;
 
 <style is:global>
   body {
-    @apply bg-tertiary-600 text-secondary-600;
+    @apply bg-tertiary-700 text-secondary-600;
   }
-  @media (min-width: 768px) {
+  @media (min-width: 1000px) {
     .grid-xl {
       display: grid;
       grid-template-columns: 0.1fr 1fr 0.1fr;

@@ -18,7 +18,7 @@ const { text = "", id = "", class: className = "" } = Astro.props;
       const animation = animate(
         box,
         { scale: 1.05 },
-        { duration: 0.1, type: "spring", stiffness: 300 },
+        { duration: 0.05, type: "spring", stiffness: 200 },
       );
       animation.speed = animation.speed * 1.5;
     });
@@ -27,7 +27,7 @@ const { text = "", id = "", class: className = "" } = Astro.props;
       const animation = animate(
         box,
         { scale: 1 },
-        { duration: 0.1, type: "spring", stiffness: 300 },
+        { duration: 0.05, type: "spring", stiffness: 200 },
       );
       animation.speed = animation.speed * 1.5;
     });
@@ -35,8 +35,8 @@ const { text = "", id = "", class: className = "" } = Astro.props;
     const clickPress = () => {
       const animation = animate(
         box,
-        { scale: 0.90 },
-        { duration: 0.1, type: "spring", stiffness: 300 },
+        { scale: 0.96 },
+        { duration: 0.05, type: "spring", stiffness: 200 },
       );
       animation.speed = animation.speed * 1.5;
       isAnimated = !isAnimated;
@@ -47,7 +47,7 @@ const { text = "", id = "", class: className = "" } = Astro.props;
       const animation = animate(
         box,
         { scale: 1 },
-        { duration: 0.1, type: "spring", stiffness: 300 },
+        { duration: 0.05, type: "spring", stiffness: 200 },
       );
       animation.speed = animation.speed * 1.5;
 
@@ -57,7 +57,7 @@ const { text = "", id = "", class: className = "" } = Astro.props;
           const animation = animate(
             box,
             { scale: 1.05 },
-            { duration: 0.1, type: "spring", stiffness: 300 },
+            { duration: 0.05, type: "spring", stiffness: 200 },
           );
           animation.speed = animation.speed * 1.2;
         }, 100);
